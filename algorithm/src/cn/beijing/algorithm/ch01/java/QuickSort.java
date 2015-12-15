@@ -20,7 +20,7 @@ public class QuickSort {
 			System.out.print(a[i]+" ");
 		}
 	}
-	private static void quicksort(int left, int right) {
+	public static void quicksort(int left, int right) {
 		if(left > right) return;
 		int i,j,t,temp;
 		temp = a[left];
@@ -43,6 +43,32 @@ public class QuickSort {
 		
 		quicksort(left, i - 1);
 		quicksort(j+1, right);
+		
+	}
+	
+	public static void quicksort(int[] arr,int left, int right) {
+		if(left > right) return;
+		int i,j,t,temp;
+		temp = arr[left];
+		i = left;
+		j = right;
+		while(i != j){//与基数比较，分为两队
+			while(arr[j] >= temp && i < j)
+				j--;
+			while(arr[i] <= temp && i < j)
+				i++;
+			if(i < j){
+				t = arr[i];
+				arr[i] = arr[j];
+				arr[j] = t;
+			}
+		}
+		
+		arr[left] = arr[i];
+		arr[i] = temp;
+		
+		quicksort(arr,left, i - 1);
+		quicksort(arr,j+1, right);
 		
 	}
 }
