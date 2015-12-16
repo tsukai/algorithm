@@ -10,7 +10,7 @@ import cn.beijing.algorithm.ch02.pojo.SimpleStack;
  */
 public class StackDemo {
 	public static void main(String[] args) {
-		SimpleStack stack = new SimpleStack();
+		SimpleStack<Character> stack = new SimpleStack<Character>();
 		String str = "abcdcba";
 		int mid = str.length() / 2 - 1;
 		int i;
