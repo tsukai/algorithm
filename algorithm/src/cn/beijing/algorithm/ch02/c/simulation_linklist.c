@@ -15,8 +15,8 @@ int main()
 	t = 0;
 	while(t != 0){
 		if(data[right[t] > 6]{
-			rifht[len - 1] = right[t];
-			rifht[t] = len - 1;
+			right[len - 1] = right[t];
+			right[t] = len - 1;
 		}
 		t = right[t];
 	}
