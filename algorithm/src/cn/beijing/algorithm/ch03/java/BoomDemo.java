@@ -1,6 +1,6 @@
 package cn.beijing.algorithm.ch03.java;
 
-public class BoomDemp {
+public class BoomDemo {
 	public static void main(String[] args) {
 		//#表示墙，G表示敌人，.表示空地
 		char[][] data = {
