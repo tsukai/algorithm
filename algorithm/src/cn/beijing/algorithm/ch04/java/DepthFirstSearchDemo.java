@@ -3,6 +3,8 @@
  */
 package cn.beijing.algorithm.ch04.java;
 
+import java.util.Arrays;
+
 import cn.beijing.algorithm.ch04.pojo.SimpleQueue;
 
 /**
@@ -46,6 +48,7 @@ public class DepthFirstSearchDemo {
 		if(data[point.getX()][point.getY()] == 0){
 			return;
 		}
+		data[point.getX()][point.getY()] = step;
 		int i;
 		for(i = 0;i <= 3;i++){
 			SimpleQueue t = new SimpleQueue(point.getX()+next[i][0], point.getY()+next[i][1]);
@@ -55,7 +58,7 @@ public class DepthFirstSearchDemo {
 			if(data[t.getX()][t.getY()] > 0 && book[t.getX()][t.getY()] == 0){
 				sum++;
 				book[t.getX()][t.getY()] = 1;
-				dfs(t,step+1);
+				dfs(t,step);
 //				book[t.getX()][t.getY()] = 0;
 			}
 		}
@@ -63,7 +66,21 @@ public class DepthFirstSearchDemo {
 	
 	public static void main(String[] args) {
 		SimpleQueue start = new SimpleQueue(6,8);
-		dfs(start,0);
-		System.out.println(sum);
+		//dfs(start,-1);
+//		System.out.println(sum);
+		int num = 0;
+		for (int i = 0; i < data.length; i++) {
+			for (int j = 0; j < data[i].length; j++) {
+				if(data[i][j] > 0){
+					num --;
+					book[i][j] = 1;
+					dfs(new SimpleQueue(i,j),num);
+				}
+			}
+		}
+		
+		for (int i = 0; i < data.length; i++) {
+			System.out.println(Arrays.toString(data[i]));
+		}
 	}
 }
