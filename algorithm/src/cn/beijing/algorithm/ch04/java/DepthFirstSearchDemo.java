@@ -65,6 +65,7 @@ public class DepthFirstSearchDemo {
 	}
 	
 	public static void main(String[] args) {
+		@SuppressWarnings("unused")
 		SimpleQueue start = new SimpleQueue(6,8);
 		//dfs(start,-1);
 //		System.out.println(sum);
