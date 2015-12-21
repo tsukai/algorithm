@@ -1,7 +1,7 @@
 package cn.beijing.algorithm.ch02.pojo;
 
 public class SimpleStack<T> {
-	private Object s[] = new Object[10];
+	private Object s[] = new Object[100];
 	private int top = 0;
 	
 	@SuppressWarnings("unchecked")

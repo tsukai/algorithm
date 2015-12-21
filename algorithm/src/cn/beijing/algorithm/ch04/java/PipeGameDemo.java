@@ -3,6 +3,9 @@
  */
 package cn.beijing.algorithm.ch04.java;
 
+import cn.beijing.algorithm.ch02.pojo.SimpleStack;
+import cn.beijing.algorithm.ch04.pojo.SimpleQueue;
+
 /**
  * @author zukai 2015-12-21
  */
@@ -39,6 +42,7 @@ public class PipeGameDemo {
 	 */
 	static int front[] = {1,2,3,4};
 	static int num = 0,flag = 0;
+	static SimpleStack<SimpleQueue> stack = new SimpleStack<>();
 	public static void main(String[] args) {
 		dfs(0,0,1);
 		if(flag == 0){
@@ -51,6 +55,7 @@ public class PipeGameDemo {
 		//判断是否到达终点，放到越界判断前边
 		if(x == n-1 && y == m){//出口在右边
 			flag = 1;//找到方案
+			System.out.println(stack);
 			return;
 		}
 		//判断是否越界
@@ -62,6 +67,7 @@ public class PipeGameDemo {
 			return;
 		}
 		book[x][y] = 1;
+		stack.push(new SimpleQueue(x, y));
 		//当前水管是直管（5,6）
 		if(data[x][y] >= 5 && data[x][y] <= 6){
 			if(direction == front[0]){//进水口在左边
@@ -91,6 +97,7 @@ public class PipeGameDemo {
 			}
 		}	
 		book[x][y] = 0;
+		stack.pop();
 		return;
 	}
 }

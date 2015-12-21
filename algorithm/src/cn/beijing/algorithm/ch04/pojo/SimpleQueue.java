@@ -44,4 +44,9 @@ public class SimpleQueue {
 		return this.x == other.x && this.y == other.y;
 	}
 	
+	@Override
+	public String toString() {
+		return "("+x+","+y+")";
+	}
+	
 }
