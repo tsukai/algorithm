@@ -12,11 +12,12 @@ import java.util.Arrays;
  */
 public class SingleShortestPathDemo3 {
 	static int distance[] = {0,0,99,99,99,99};
+	static int bak[] = {0,0,99,99,99,99};
 	static int u[] = {2, 1,1,4,3};
 	static int v[] = {3, 2,5,5,4};
 	static int w[] = {2,-3,5,2,3};
 	static int n = 5,m = 5;
-	static int inf = 9999;//{0,0,-3,99,99,5};
+	static int inf = 9999,check = 0;//{0,0,-3,99,99,5};
 	public static void main(String[] args) {
 		for (int i = 1; i <= n - 1; i++) {
 			for (int j = 0; j <= m-1; j++) {
@@ -24,6 +25,14 @@ public class SingleShortestPathDemo3 {
 					distance[v[j]]  = distance[u[j]] + w[j];
 				}
 			}
+			check = 0;
+			for (int j = 0; j < distance.length; j++) {
+				if(distance[j] != bak[j]){
+					check = 1;
+					break;
+				}
+			}
+			if(check == 0) break;//如果distance没有更新，提前退出循环
 		}
 		int flag = 0;
 		for (int j = 0; j < m - 1; j++) {
