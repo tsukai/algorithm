@@ -49,7 +49,7 @@ public class MinimumHeadDemo {
 		int flag = 0;
 		if(i == 1) return;//堆顶
 		while(i != 1 && flag == 0){
-			if(h[i] <= h[i/2]){
+			if(h[i] > h[i/2]){
 				swap(i,i/2);
 			}else flag = 1;
 			i = i / 2;
@@ -60,6 +60,13 @@ public class MinimumHeadDemo {
 	public static int[] getMinimumHeap(){
 		for (int i = n / 2; i >= 1; i--) {
 			siftdown(i);
+		}
+		return h;
+	}
+	
+	public static int[] getMaximumHeap(){
+		for (int i = 14; i >= 1; i--) {
+			siftup(i);
 		}
 		return h;
 	}
