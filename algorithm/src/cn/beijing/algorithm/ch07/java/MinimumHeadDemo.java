@@ -44,7 +44,6 @@ public class MinimumHeadDemo {
 		h[i] = k;
 	}
 
-	@SuppressWarnings("unused")
 	private static void siftup(int i) {
 		int flag = 0;
 		if(i == 1) return;//堆顶

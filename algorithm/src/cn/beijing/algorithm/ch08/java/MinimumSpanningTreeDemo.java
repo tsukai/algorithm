@@ -3,8 +3,6 @@
  */
 package cn.beijing.algorithm.ch08.java;
 
-import java.util.Arrays;
-
 import cn.beijing.algorithm.ch08.pojo.Edge;
 
 /**
